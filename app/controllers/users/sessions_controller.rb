@@ -3,13 +3,22 @@ class Users::SessionsController < Devise::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    super
+    # session[:return_to] = params[:return_to] if params[:return_to]
+  end
 
   # POST /resource/sign_in
   # def create
-  #   super
+  #   self.resource = warden.authenticate!(auth_options)
+  #   sign_in(resource_name, resource)
+  #
+  #   if session[:return_to]
+  #     redirect_to session[:return_to]
+  #     session[:return_to] = nil
+  #   else
+  #     redirect_to root_url
+  #   end
   # end
 
   # DELETE /resource/sign_out
